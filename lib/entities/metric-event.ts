@@ -1,12 +1,12 @@
 import {EventsDataSource} from "./event-data-source";
 
-type Event = {
+export type Event = {
     id: string;
     timestamp: Date;
     data: any;
 }
 
-type Metric = {
+export type Metric = {
     eventsDataSource: EventsDataSource
     filter: Filter;
     aggregationMethod: AggregationMethod;
@@ -29,7 +29,7 @@ const CRITERION_OPERATOR = {
 
 type CriterionOperator = typeof CRITERION_OPERATOR[keyof typeof CRITERION_OPERATOR];
 
-type Criterion = {
+export type Criterion = {
     field: string;
     value: any;
     operator: CriterionOperator;
@@ -42,9 +42,9 @@ const AGGREGATION_OPERATOR = {
     MAX: 'max',
 } as const;
 
-export type AggregationOperator = typeof AGGREGATION_OPERATOR[keyof typeof AGGREGATION_OPERATOR];
+type AggregationOperator = typeof AGGREGATION_OPERATOR[keyof typeof AGGREGATION_OPERATOR];
 
-type AggregationMethod = {
+export type AggregationMethod = {
     operator: AggregationOperator;
     field: string
 };
