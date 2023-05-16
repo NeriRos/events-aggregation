@@ -3,18 +3,22 @@
     "id": "1",
     "data": {
       "amountPaid": 1
-    }
+    },
+    "type": "metric"
+
   },
   {
     "id": "2",
     "data": {
       "amountPaid": 10
-    }
+    },
+    "type": "metric"
   },
   {
     "id": "3",
     "data": {
       "amountPaid": 20
-    }
+    },
+    "type": "metric"
   }
 ]
