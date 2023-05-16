@@ -1,4 +1,4 @@
-import {Event} from "@/lib/entities/metric-event";
+import {Event} from "@/lib/entities/metric_event";
 
 export enum EventTypes {
     metric = 'metric',

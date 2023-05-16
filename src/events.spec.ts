@@ -1,5 +1,5 @@
 import {Events, EventTypes} from "@/events";
-import {Event} from "@/lib/entities/metric-event";
+import {Event} from "@/lib/entities/metric_event";
 
 class MockEvents extends Events {
     getEvents() {
