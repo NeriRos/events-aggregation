@@ -17,7 +17,7 @@
     ]
   },
   "aggregationMethod": {
-    "operator": "Average",
+    "operator": "average",
     "field": "amountPaid"
   }
 }
