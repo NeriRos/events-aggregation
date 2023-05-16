@@ -4,8 +4,8 @@ import {EventsRepository} from "@/repositories/events_repository";
 import * as fs from "fs";
 
 export class LocalRepository extends EventsRepository {
-    constructor(events: Events, eventType: EventTypes, private filePath: string) {
-        super(events, eventType);
+    constructor(events: Events, private filePath: string) {
+        super(events);
     }
 
     async createEvents() {

@@ -4,6 +4,7 @@ export type Event = {
     id: string;
     timestamp: Date;
     data: any;
+    type: EventTypes
 }
 
 export type Metric = {
@@ -12,11 +13,11 @@ export type Metric = {
     aggregationMethod: AggregationMethod;
 };
 
-type Filter = {
+export type Filter = {
     conditions: Condition[];
 };
 
-type Condition = {
+export type Condition = {
     criterions: Criterion[];
 }
 

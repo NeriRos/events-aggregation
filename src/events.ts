@@ -5,7 +5,7 @@ export class Events {
     protected events: Event[] = [];
     private listeners: { [eventType: string]: Function[] } = {};
 
-    subscribe(eventType: EventTypes, callback: (data: any) => void) {
+    subscribe(eventType: EventTypes, callback: (data: Event) => void) {
         if (!this.listeners[eventType])
             this.listeners[eventType] = [];
 
@@ -14,14 +14,14 @@ export class Events {
         return true;
     }
 
-    publish(eventType: EventTypes, event: Event) {
+    publish(event: Event) {
         this.events.push(event);
 
-        if (!this.listeners[eventType]) {
+        if (!this.listeners[event.type]) {
             return true;
         }
 
-        this.listeners[eventType].forEach(callback => {
+        this.listeners[event.type].forEach(callback => {
             callback.call(null, event);
         });
 
