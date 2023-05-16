@@ -21,7 +21,7 @@ export type Condition = {
     criterions: Criterion[];
 }
 
-const CRITERION_OPERATOR = {
+export const CRITERION_OPERATOR = {
     EQUALS: 'Equals',
     NOT_EQUALS: 'NotEquals',
     LARGER_THAN: 'LargerThan',
@@ -36,7 +36,7 @@ export type Criterion = {
     operator: CriterionOperator;
 };
 
-const AGGREGATION_OPERATOR = {
+export const AGGREGATION_OPERATOR = {
     SUM: 'sum',
     AVERAGE: 'average',
     MIN: 'min',
