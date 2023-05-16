@@ -1,7 +1,8 @@
-import {Events, EventTypes} from "@/events";
+import {EventsCommunication} from "@/events_communication";
 import {Event} from "@/lib/entities/metric_event";
+import {EventTypes} from "@/lib/entities/event_data_source";
 
-class MockEvents extends Events {
+class MockEvents extends EventsCommunication {
     getEvents() {
         return this.events;
     }
@@ -14,7 +15,8 @@ describe('Events pub sub', function () {
         timestamp: new Date(),
         data: {
             test: 'test',
-        }
+        },
+        type: EventTypes.metric,
     };
 
     beforeEach(function () {
@@ -22,7 +24,7 @@ describe('Events pub sub', function () {
     });
 
     it('should publish an event', function () {
-        events.publish(EventTypes.metric, testEvent);
+        events.publish(testEvent);
         expect(events.getEvents()).toContain(testEvent);
     });
 
@@ -30,6 +32,6 @@ describe('Events pub sub', function () {
         events.subscribe(EventTypes.metric, (event: Event) => {
             expect(event).toEqual(testEvent);
         });
-        events.publish(EventTypes.metric, testEvent);
+        events.publish(testEvent);
     });
 });

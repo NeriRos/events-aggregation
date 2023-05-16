@@ -1,7 +1,7 @@
 import {Event} from "@/lib/entities/metric_event";
 import {EventTypes} from "@/lib/entities/event_data_source";
 
-export class Events {
+export class EventsCommunication {
     protected events: Event[] = [];
     private listeners: { [eventType: string]: Function[] } = {};
 

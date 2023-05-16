@@ -1,6 +1,6 @@
 import {Event, Metric} from "@/lib/entities/metric_event";
 import {LocalRepository} from "@/lib/repositories/local_repository";
-import {Events} from "@/events";
+import {EventsCommunication} from "@/events_communication";
 import {getMetric} from "@/metrics";
 import {filter} from "@/filters";
 import {
@@ -13,7 +13,7 @@ import {EventsRepository} from "@/lib/repositories/events_repository";
 (async () => {
     const metric = getMetric();
 
-    const events: Events = new Events();
+    const events: EventsCommunication = new EventsCommunication();
     const repository = loadRepository(events, metric.eventsDataSource);
 
     events.subscribe(EventTypes.metric, eventHandler);
@@ -24,8 +24,7 @@ import {EventsRepository} from "@/lib/repositories/events_repository";
     }
 })()
 
-
-function loadRepository(events: Events, dataSource: EventsDataSource) {
+function loadRepository(events: EventsCommunication, dataSource: EventsDataSource) {
     let repository: EventsRepository;
 
     switch (dataSource.type) {

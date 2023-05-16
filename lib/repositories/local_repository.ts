@@ -1,10 +1,10 @@
-import {Events} from "@/events";
+import {EventsCommunication} from "@/events_communication";
 import {Event} from "@/lib/entities/metric_event";
 import * as fs from "fs";
 import {EventsRepository} from "@/lib/repositories/events_repository";
 
 export class LocalRepository extends EventsRepository {
-    constructor(events: Events, private filePath: string) {
+    constructor(events: EventsCommunication, private filePath: string) {
         super(events);
     }
 

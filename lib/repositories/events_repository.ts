@@ -1,8 +1,8 @@
-import {Events} from "@/events";
+import {EventsCommunication} from "@/events_communication";
 import {Event} from "@/lib/entities/metric_event";
 
 export abstract class EventsRepository {
-    protected constructor(protected events: Events) {
+    protected constructor(protected events: EventsCommunication) {
     }
 
     async create(item: Event): Promise<boolean> {

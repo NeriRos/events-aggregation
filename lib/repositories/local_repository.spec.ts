@@ -1,10 +1,10 @@
-import {Events, EventTypes} from "@/events";
+import {EventsCommunication, EventTypes} from "@/events_communication";
 import {Event} from "@/lib/entities/metric_event";
 import * as fs from "fs";
 import {LocalRepository} from "@/repositories/local_repository";
 import * as path from "path";
 
-class MockEvents extends Events {
+class MockEvents extends EventsCommunication {
     getEvents() {
         return this.events;
     }
