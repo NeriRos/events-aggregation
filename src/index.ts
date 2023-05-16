@@ -1,3 +1,5 @@
+import {Event} from "@/lib/entities/metric_event";
+import {LocalRepository} from "@/lib/repositories/local_repository";
 import {Events, EventTypes} from "@/events";
 import {LocalRepository} from "@/repositories/local_repository";
 

@@ -4,6 +4,10 @@ export const EVENTS_DATA_SOURCE_TYPE = {
     DB: 'db',
 } as const;
 
+export enum EventTypes {
+    metric = 'metric',
+}
+
 interface LocalFileDataSourceConfig {
     path: string;
 }

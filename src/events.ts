@@ -1,8 +1,5 @@
 import {Event} from "@/lib/entities/metric_event";
-
-export enum EventTypes {
-    metric = 'metric',
-}
+import {EventTypes} from "@/lib/entities/event_data_source";
 
 export class Events {
     protected events: Event[] = [];

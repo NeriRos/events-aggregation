@@ -1,4 +1,4 @@
-import {Events, EventTypes} from "@/events";
+import {Events} from "@/events";
 import {Event} from "@/lib/entities/metric_event";
 import {EventsRepository} from "@/repositories/events_repository";
 import * as fs from "fs";

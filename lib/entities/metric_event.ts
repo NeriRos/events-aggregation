@@ -1,4 +1,4 @@
-import {EventsDataSource} from "./event_data_source";
+import {EventsDataSource, EventTypes} from "./event_data_source";
 
 export type Event = {
     id: string;

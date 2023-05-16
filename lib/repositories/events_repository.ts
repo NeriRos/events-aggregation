@@ -1,4 +1,4 @@
-import {Events, EventTypes} from "@/events";
+import {Events} from "@/events";
 import {Event} from "@/lib/entities/metric_event";
 
 export abstract class EventsRepository {
