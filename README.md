@@ -176,7 +176,7 @@ const events: Event = [{
 
 Condition evaluation
 
-	A condition is considered true for a given event, if *any* of its criterions are true for the event.
+	A condition is considered true for a given event, if *any* of its criteria are true for the event.
 
 Filter evaluation
 
@@ -190,7 +190,7 @@ type Filter = {
 };
 
 type Condition = {
-    criterions: Criterion[];
+    criteria: Criterion[];
 }
 
 const CRITERION_OPERATOR = {

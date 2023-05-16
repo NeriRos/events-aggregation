@@ -18,7 +18,7 @@ export type Filter = {
 };
 
 export type Condition = {
-    criterions: Criterion[];
+    criteria: Criterion[];
 }
 
 export const CRITERION_OPERATOR = {

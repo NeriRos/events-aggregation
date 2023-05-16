@@ -2,7 +2,9 @@ import {Criterion, CRITERION_OPERATOR, Event, Filter} from "@/lib/entities/metri
 
 export function filterEvent(filter: Filter, event: Event) {
     for (const condition of filter.conditions) {
-        for (const criterion of condition.criterions) {
+        let criteriaPassed = false;
+
+        for (const criterion of condition.criteria) {
             const passed = testCriteria(criterion, event);
 
             if (!passed)

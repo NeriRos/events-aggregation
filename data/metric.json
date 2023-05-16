@@ -8,7 +8,7 @@
   "filter": {
     "conditions": [
       {
-        "criterions": [{
+        "criteria": [{
           "field": "amountPaid",
           "value": 5,
           "operator": "LargerThan"

@@ -15,7 +15,7 @@ describe('Filters', function () {
     const filter: Filter = {
         conditions: [
             {
-                criterions: [
+                criteria: [
                     {
                         field: 'test',
                         operator: 'Equals',
@@ -33,7 +33,7 @@ describe('Filters', function () {
     });
 
     it('testCriteria should pass', function () {
-        const isPassed = testCriteria(filter.conditions[0].criterions[0], testEvent);
+        const isPassed = testCriteria(filter.conditions[0].criteria[0], testEvent);
 
         expect(isPassed).toBe(true);
     });
