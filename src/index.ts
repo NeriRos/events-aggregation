@@ -1,13 +1,39 @@
-import {Event} from "@/lib/entities/metric_event";
+import {Event, Metric} from "@/lib/entities/metric_event";
 import {LocalRepository} from "@/lib/repositories/local_repository";
-import {Events, EventTypes} from "@/events";
-import {LocalRepository} from "@/repositories/local_repository";
+import {Events} from "@/events";
+import {getMetric} from "@/metrics";
+import {filter} from "@/filters";
+import {
+    EVENTS_DATA_SOURCE_TYPE, EventsDataSource,
+    EventsDataSourceType,
+    EventTypes,
+} from "@/lib/entities/event_data_source";
+import {EventsRepository} from "@/lib/repositories/events_repository";
 
-const events: Events = new Events();
-const localRepository: LocalRepository = new LocalRepository(events, EventTypes.metric, `${process.cwd()}/data/events.json`);
+(async () => {
+    const metric = getMetric();
 
-events.subscribe(EventTypes.metric, (data: any) => {
-    console.log(data)
-});
+    const events: Events = new Events();
+    const repository = loadRepository(events, metric.eventsDataSource);
 
-localRepository.createEvents();
+    events.subscribe(EventTypes.metric, eventHandler);
+    await repository.load();
+})()
+
+function eventHandler(event: Event, metric: Metric) {
+
+}
+
+function loadRepository(events: Events, dataSource: EventsDataSource) {
+    let repository: EventsRepository;
+
+    switch (dataSource.type) {
+        case EVENTS_DATA_SOURCE_TYPE.LOCAL_FILE_PATH:
+            repository = new LocalRepository(events, dataSource.config.path);
+            break;
+        default:
+            throw new Error('Not implemented');
+    }
+
+    return repository
+}
