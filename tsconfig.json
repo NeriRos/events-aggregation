@@ -1,9 +1,4 @@
 {
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts",
-    "**/*.test.ts"
-  ],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
