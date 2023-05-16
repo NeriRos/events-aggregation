@@ -32,14 +32,14 @@ Use the data in the Metric to filter them
 Use the data in the Metric to calculate a numerical value.
 Save the numerical value
 
-### Entities
+## Entities
 
-**Metric**
+### Metric
 
 The Metric object contains all the logic that is needed to read, filter and calculate the
 value from the events.
 
-Type Definitions
+**Type Definitions**
 
 ```typescript
 type Metric = {
@@ -49,11 +49,11 @@ type Metric = {
 };
 ```
 
-**Event**
+### Event
 
 The Event object contains an id, a timestamp and a “data” property of unknown structure.
 
-Type Definitions
+**Type Definitions**
 
 ```typescript
 type Event = {
@@ -63,12 +63,12 @@ type Event = {
 }
 ```
 
-**EventsDataSource**
+### EventsDataSource
 
 This property holds the information needed to read the events.
 The events can be read from a local json file, an s3 file or a database.
 
-Type Definitions
+**Type Definitions**
 
 ```typescript
 const EVENTS_DATA_SOURCE_TYPE = {
@@ -79,6 +79,7 @@ const EVENTS_DATA_SOURCE_TYPE = {
 
 
 type EventsDataSourceType = typeof EVENTS_DATA_SOURCE_TYPE[keyof typeof EVENTS_DATA_SOURCE_TYPE];
+
 interface LocalFileDataSourceConfig {
     path: string;
 }
@@ -110,7 +111,8 @@ type DbDataSource = {
 type EventsDataSource = LocalFileDataSource | S3DataSource | DbDataSource;
 ```
 
-**Filter**
+### Filter
+
 The filter object is used to contain the logic that is used to filter out events before aggregating them.
 
 The filter object contains conditions which contain criteria.
@@ -164,7 +166,7 @@ Filter evaluation
 
 	A filter is considered true for a given event, if *all* of its conditions are true for the event.
 
-Type Definitions
+**Type Definitions**
 
 ```typescript
 type Filter = {
@@ -191,7 +193,7 @@ type Criterion = {
 };
 ```
 
-**Aggregation Method**
+### Aggregation Method
 
 The aggregationMethod object is used to contain the logic that is used to calculate the number result from the filtered
 events.
@@ -227,7 +229,7 @@ const filteredEvents: Event = [{
 }]
 ```
 
-Type definitions
+**Type definitions**
 
 ```typescript
 const AGGREGATION_OPERATOR = {
@@ -245,7 +247,7 @@ type AggregationMethod = {
 };
 ```
 
-Code Steps
+## Code Steps
 
 1. Reading the events:
    You will start your code with predefined metrics found in a file, you will need to read a metric from there and based
@@ -269,7 +271,7 @@ store/send the events any of the following endpoints
 - An API
 - A queue
 
-### Important Notes
+## Important Notes
 
 - Extensibility - write the code in a way that can be easily extensible to support future use cases of the flow.
 - Separation - Make sure the code is well separated, in terms of coupling and well organised codebase.
