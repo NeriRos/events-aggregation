@@ -2,7 +2,7 @@
   "eventsDataSource": {
     "type": "localFilePath",
     "config": {
-      "path": "/path/to/local/events.json"
+      "path": "/Users/neri/WebstormProjects/dynamic-events-aggregation/data/events.json"
     }
   },
   "filter": {
