@@ -16,7 +16,7 @@ export class LocalRepository extends EventsRepository {
         });
     }
 
-    async loadFile(): Promise<Event[]> {
+    private async loadFile(): Promise<Event[]> {
         const promise = new Promise<Event[]>((resolve, reject) => {
             fs.readFile(this.filePath, (err, data) => {
                 if (err) {
