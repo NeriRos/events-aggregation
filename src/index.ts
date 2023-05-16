@@ -8,19 +8,31 @@ import {
 } from "@/lib/entities/event_data_source";
 import {EventsRepository} from "@/lib/repositories/events_repository";
 import {filterEvent} from "@/filters";
+import {aggregate} from "@/aggregator";
 
 (async () => {
     const metric = getMetric();
+    const passedEvents: Event[] = [];
 
     const events: EventsCommunication = new EventsCommunication();
     const repository = loadRepository(events, metric.eventsDataSource);
 
     events.subscribe(EventTypes.metric, eventHandler);
-    await repository.load();
+    events.onComplete(onComplete);
+
+    const loadedEvents = await repository.load();
 
     function eventHandler(event: Event) {
         const isPassed = filterEvent(metric.filter, event);
 
+        if (isPassed)
+            passedEvents.push(event);
+    }
+
+    function onComplete() {
+        const result = aggregate(metric.aggregationMethod, passedEvents);
+
+        output(result);
     }
 })()
 
@@ -36,4 +48,8 @@ function loadRepository(events: EventsCommunication, dataSource: EventsDataSourc
     }
 
     return repository
+}
+
+function output(result: number | null) {
+    console.log(result);
 }

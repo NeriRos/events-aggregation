@@ -12,4 +12,8 @@ export abstract class EventsRepository {
     async load(): Promise<Event[] | Error | null> {
         throw new Error('Not implemented');
     }
+
+    async end() {
+        return this.events.end()
+    }
 }

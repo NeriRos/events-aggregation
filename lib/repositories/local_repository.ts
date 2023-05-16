@@ -23,6 +23,8 @@ export class LocalRepository extends EventsRepository {
                 });
 
                 resolve(events);
+
+                this.end();
             });
         });
     }
