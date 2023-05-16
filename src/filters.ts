@@ -1,14 +1,14 @@
-import {Criterion, Event, Filter} from "@/lib/entities/metric_event";
+import {Criterion, CRITERION_OPERATOR, Event, Filter} from "@/lib/entities/metric_event";
 
 export function filterEvent(filter: Filter, event: Event) {
-    filter.conditions.forEach(condition => {
-        condition.criterions.forEach(criterion => {
+    for (const condition of filter.conditions) {
+        for (const criterion of condition.criterions) {
             const passed = testCriteria(criterion, event);
 
             if (!passed)
                 return false;
-        });
-    });
+        }
+    }
 
     return true;
 }
@@ -21,13 +21,13 @@ export function testCriteria(criterion: Criterion, event: Event) {
     }
 
     switch (criterion.operator) {
-        case "Equals":
+        case CRITERION_OPERATOR.EQUALS:
             return criterion.value === value;
-        case "NotEquals":
+        case CRITERION_OPERATOR.NOT_EQUALS:
             return criterion.value !== value;
-        case "Contains":
+        case CRITERION_OPERATOR.CONTAINS:
             return value.includes(criterion.value);
-        case "LargerThan":
+        case CRITERION_OPERATOR.LARGER_THAN:
             return value > criterion.value;
     }
 
