@@ -5,6 +5,19 @@
 This is a test project to demonstrate how to aggregate events from different sources, filtering them, and performing
 calculations.
 
+## Getting started
+
+### Prerequisites
+
+- Node.js
+- NPM
+
+### Running the project
+
+1. Install dependencies using `npm install`
+2. Build the project using `npm run build`
+3. Run the project using `npm run start`
+
 ## Requirements
 
 <details>
