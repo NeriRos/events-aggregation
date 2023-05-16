@@ -5,6 +5,9 @@ export class EventsCommunication {
     protected events: Event[] = [];
     private listeners: { [eventType: string]: Function[] } = {};
 
+    private onCompleteFunction: Function = () => {
+    };
+
     subscribe(eventType: EventTypes, callback: (data: Event) => void) {
         if (!this.listeners[eventType])
             this.listeners[eventType] = [];
@@ -26,5 +29,13 @@ export class EventsCommunication {
         });
 
         return true
+    }
+
+    onComplete(callback: (events: Event[]) => void) {
+        this.onCompleteFunction = callback;
+    }
+
+    end() {
+        return this.onCompleteFunction.call(null, this.events);
     }
 }
