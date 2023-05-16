@@ -13,17 +13,21 @@ export class Events {
             this.listeners[eventType] = [];
 
         this.listeners[eventType].push(callback);
+
+        return true;
     }
 
     publish(eventType: EventTypes, event: Event) {
         this.events.push(event);
 
         if (!this.listeners[eventType]) {
-            return;
+            return true;
         }
 
         this.listeners[eventType].forEach(callback => {
             callback.call(null, event);
         });
+
+        return true
     }
 }
