@@ -26,11 +26,7 @@ calculations.
 ### Test Parameters
 
 1. Have fun 🙂
-2. Ask anything, I am here for any question you might have, don’t be shy
-3. Duration is 3 hrs
-4. Once completed, please compress the root directory of your solution to a .zip file and send to
-   shaike.gross@gmail.com (make sure to delete node_modules directory before compressing)
-5. Input file and events file are located here
+2. Duration is 3 hrs
 
 ### Required tools
 
