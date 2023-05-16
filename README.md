@@ -7,6 +7,9 @@ calculations.
 
 ## Requirements
 
+<details>
+<summary> Click to expand the assignment requirements </summary>
+
 ### Test Parameters
 
 1. Have fun 🙂
@@ -280,3 +283,11 @@ store/send the events any of the following endpoints
 - Be you - The goal is to try and simulate how you tackle coding problems in a real life scenario, try and tackle it as
   if
   it was another task from your team lead. Ask questions, validate assumptions, make sure you understand the task
+
+</details>
+
+## Design
+
+### Architecture
+
+![img.png](docs/img.png)
