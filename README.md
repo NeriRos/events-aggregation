@@ -78,8 +78,7 @@ const EVENTS_DATA_SOURCE_TYPE = {
 } as const;
 
 
-type EventsDataSourceType = typeof EventsDataSource[keyof typeof EVENTS_DATA_SOURCE_TYPE];
-
+type EventsDataSourceType = typeof EVENTS_DATA_SOURCE_TYPE[keyof typeof EVENTS_DATA_SOURCE_TYPE];
 interface LocalFileDataSourceConfig {
     path: string;
 }
@@ -168,7 +167,6 @@ Filter evaluation
 Type Definitions
 
 ```typescript
-
 type Filter = {
     conditions: Condition[];
 };
@@ -232,7 +230,6 @@ const filteredEvents: Event = [{
 Type definitions
 
 ```typescript
-
 const AGGREGATION_OPERATOR = {
     SUM: 'sum',
     AVERAGE: 'average',
