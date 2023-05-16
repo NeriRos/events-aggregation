@@ -18,11 +18,12 @@ import {EventsRepository} from "@/lib/repositories/events_repository";
 
     events.subscribe(EventTypes.metric, eventHandler);
     await repository.load();
+
+    function eventHandler(event: Event) {
+        const isPassed = filter(metric.filter, event);
+    }
 })()
 
-function eventHandler(event: Event, metric: Metric) {
-
-}
 
 function loadRepository(events: Events, dataSource: EventsDataSource) {
     let repository: EventsRepository;
