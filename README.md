@@ -300,3 +300,5 @@ store/send the events any of the following endpoints
 ### Architecture
 
 ![img.png](docs/img.png)
+
+Looking back at the design, I would improve it by having all parts subscribe to a single topic and broadcast the appropriate events when their result is ready instead of having _main_ orcastrate the process. creating a more modular and decoupled system.
